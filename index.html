@@ -8,6 +8,7 @@
   
   <title>Frontend Mentor | Interactive card details form</title>
 
+  <link rel="stylesheet" href="./style.css">
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
     .attribution { font-size: 11px; text-align: center; }
@@ -15,28 +16,34 @@
   </style>
 </head>
 <body>
-  <form action="">
-    <div>
-      <label for="cardholderName">Cardholder Name</label>
-      <input type="text" id="cardholderName" placeholder="e.g. Jane Appleseed">
-    </div>
-    <div>
-      <label for="cardNumber">Card Number</label>
-      <input type="number" id="cardNumber" placeholder="e.g. 1234 5678 9123 0000" maxlength="19">
-    </div>
-    <div>
+  <div>
+    <div id="frontCardDisplay"></div>
+    <div id="backCardDisplay"></div>
+  </div>
+  <div id="paymentModule">
+    <form action="" id="paymentInput">
       <div>
-        <label for="cardExpiration">Exp. Date (MM/YY)</label>
-        <input type="number" name="" id="cardExpiration" placeholder="MM">
-        <input type="number" name="" id="cardExpiration" placeholder="YY">
+        <label for="cardholderName">Cardholder Name</label>
+        <input type="text" id="cardholderName" placeholder="e.g. Jane Appleseed">
       </div>
       <div>
-        <label for="ccv"></label>
-        <input type="number" id="ccv" placeholder="e.g. 123">
+        <label for="cardNumber">Card Number</label>
+        <input type="number" id="cardNumber" placeholder="e.g. 1234 5678 9123 0000" maxlength="19">
       </div>
-    </div>
-    <input type="button" value="Confirm">
-  </form>
+      <div>
+        <div>
+          <label for="cardExpiration">Exp. Date (MM/YY)</label>
+          <input type="number" name="" id="cardExpiration" placeholder="MM">
+          <input type="number" name="" id="cardExpiration" placeholder="YY">
+        </div>
+        <div>
+          <label for="ccv"></label>
+          <input type="number" id="ccv" placeholder="e.g. 123">
+        </div>
+      </div>
+      <input type="button" value="Confirm">
+    </form>
+  </div>
 
   0000 0000 0000 0000
   Jane Appleseed
