@@ -61,8 +61,13 @@ form button{
 
 #cardFacturation{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
+}
+
+#frontCardDisplay,
+#backCardDisplay{
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
 #frontCardDisplay{
@@ -95,6 +100,7 @@ form button{
     background-image: url(./images/bg-card-back.png);
     color: $white;
     letter-spacing: 2px;
+    overflow: hidden;
     .ccv{
         position: relative;
         top: 45%;
@@ -156,6 +162,11 @@ form button{
         color: $white;
         font-size: 13px;
         letter-spacing: 1px;
+        transition: 0.4s ease-in-out;
+        &:hover{
+            transform: scale(1.05);
+            opacity: 0.95;
+        }
     }
     .last-entries,
     .entry-3 div{
