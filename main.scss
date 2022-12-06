@@ -136,9 +136,6 @@ form button{
         border-width: 1px;
         border: 1px solid $light-grayish-violet;
         padding-left: 10px;
-        &:focus{
-            letter-spacing: 11px;
-        }
     }
     button{
         width: 100%;
