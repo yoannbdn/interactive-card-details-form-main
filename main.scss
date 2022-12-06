@@ -58,6 +58,7 @@ form button{
     border-style: none;
 }
 
+
 #cardFacturation{
     display: flex;
     justify-content: space-around;
@@ -136,6 +137,17 @@ form button{
         border-width: 1px;
         border: 1px solid $light-grayish-violet;
         padding-left: 10px;
+    }
+    input{
+        -moz-appearance: textfield;
+        &::-webkit-inner-spin-button{
+            -webkit-appearance: none;
+            margin:0;
+        }
+        &::-o-inner-spin-button{
+            -moz-appearance: none;
+            margin:0;
+        }
     }
     button{
         width: 100%;
