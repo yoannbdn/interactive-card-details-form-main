@@ -16,50 +16,73 @@
   </style>
 </head>
 <body>
-  <div>
-    <div id="frontCardDisplay" class="cardDisplay"></div>
-    <div id="backCardDisplay" class="cardDisplay"></div>
-  </div>
-  <div id="paymentModule">
-    <form action="" id="paymentInput">
-      <div>
-        <label for="cardholderName">Cardholder Name</label>
-        <input type="text" id="cardholderName" placeholder="e.g. Jane Appleseed">
-      </div>
-      <div>
-        <label for="cardNumber">Card Number</label>
-        <input type="number" id="cardNumber" placeholder="e.g. 1234 5678 9123 0000" maxlength="19">
-      </div>
-      <div>
-        <div>
-          <label for="cardExpiration">Exp. Date (MM/YY)</label>
-          <input type="number" name="" id="cardExpiration" placeholder="MM">
-          <input type="number" name="" id="cardExpiration" placeholder="YY">
-        </div>
-        <div>
-          <label for="ccv"></label>
-          <input type="number" id="ccv" placeholder="e.g. 123">
+  <div id="cardFacturation">
+    <div id="cards-container">
+      <div id="frontCardDisplay" class="cardFormat">
+        <img id="cardLogo" src="./images/card-logo.svg" alt="card-logo">
+        <div class="informations-container">
+          <p class="card-number">0000 0000 0000 0000</p>
+          <div class="others-informations">
+            <p class="cardholder-name"> Jane Appleseed</p>
+            <div class="expiration">
+              <p class="month">00</p>
+              <p>/</p>
+              <p class="year">00</p>
+            </div>
+          </div>
         </div>
       </div>
-      <input type="button" value="Confirm">
-    </form>
+      <div id="backCardDisplay" class="cardFormat">
+        <p class="ccv">000</p>
+      </div>
+    </div>
+    <div id="form-container">
+      <form action="" id="paymentForm">
+        <div class="entry-1">
+          <label for="cardholderName">Cardholder Name</label>
+          <input type="text" id="cardholderName" placeholder="e.g. Jane Appleseed" required>
+        </div>
+        <div class="entry-2">
+          <label for="cardNumber">Card Number</label>
+          <input type="number" id="cardNumber" placeholder="e.g. 1234 5678 9123 0000" minlength="16" maxlength="19" required>
+        </div>
+        <div class="last-entries">
+          <div class="entry-3">
+            <label for="cardExpirationMonth cardExpirationYear">Exp. Date (MM/YY)</label>
+            <div class="expiration-inputs">
+              <input type="number" name="" id="cardExpirationMonth" placeholder="MM" minlength="2" maxlength="2" required>
+              <input type="number" name="" id="cardExpirationYear" placeholder="YY" minlength="2" maxlength="2" required>
+            </div>
+          </div>
+          <div class="entry-4">
+            <label for="ccv">CVC</label>
+            <input type="number" id="cvc" placeholder="e.g. 123" minlength="3" maxlength="3" required>
+          </div>
+        </div>
+        <button type="submit">Confirm</button>
+      </form>
+    </div>
   </div>
 
-  0000 0000 0000 0000
-  Jane Appleseed
-  00/00
-
-  000
 
 
-  Confirm
-
-  <!-- Completed state start -->
-
-  Thank you!
-  We've added your card details
-  Continue
+  <h4>Données à compléter</h4>
+  <p>
+    0000 0000 0000 0000
+    Jane Appleseed
+    00/00
   
+    000
+  
+  
+    Confirm
+  
+    <!-- Completed state start -->
+  
+    Thank you!
+    We've added your card details
+    Continue  
+  </p>
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">Yoann Baudrin</a>.

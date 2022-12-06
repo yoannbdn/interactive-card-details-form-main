@@ -15,11 +15,8 @@ The designs were created to the following widths:
 - Red (input errors): hsl(0, 100%, 66%)
 
 ### Neutral
-
-- White: hsl(0, 0%, 100%)
-- Light grayish violet: hsl(270, 3%, 87%)
-- Dark grayish violet: hsl(279, 6%, 55%)
-- Very dark violet: hsl(278, 68%, 11%)
+*/
+/*
 
 ## Typography
 
@@ -28,32 +25,181 @@ The designs were created to the following widths:
 - Font size: 18px
 
 ### Font
+*/
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap");
+@font-face {
+  font-family: "Space Grotesk", sans-serif;
+  src: url(https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap);
+  font-weight: 500;
+}
+p,
+form,
+form ::placeholder,
+form input,
+form button {
+  font-family: "Space Grotesk", sans-serif;
+}
 
-- Family: [Space Grotesk](https://fonts.google.com/specimen/Space+Grotesk)
-- Weights: 500
-
+/*
+============================================
+============================================
 */
 * {
   list-style-type: none;
   margin: 0;
   padding: 0;
+  border-style: none;
+}
+
+#cardFacturation {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 #frontCardDisplay {
   background-image: url(./images/bg-card-front.png);
+  color: hsl(0deg, 0%, 100%);
+}
+#frontCardDisplay #cardLogo {
+  margin: 5% 0 0 5%;
+}
+#frontCardDisplay .informations-container {
+  margin: 15% 5% 5% 5%;
+  letter-spacing: 4px;
+}
+#frontCardDisplay .informations-container .card-number {
+  position: relative;
+  top: 35%;
+  left: 1%;
+  font-size: 1.5em;
+}
+#frontCardDisplay .informations-container .others-informations {
+  margin-top: 5%;
+  display: flex;
+  justify-content: space-between;
+  text-transform: uppercase;
+}
+#frontCardDisplay .informations-container .others-informations .expiration {
+  display: flex;
 }
 
 #backCardDisplay {
   background-image: url(./images/bg-card-back.png);
+  color: hsl(0deg, 0%, 100%);
+  letter-spacing: 2px;
+}
+#backCardDisplay .ccv {
+  position: relative;
+  top: 45%;
+  left: 80%;
 }
 
-.cardDisplay {
-  height: 200px;
-  width: 400px;
+.cardFormat {
+  height: 245px;
+  width: 445px;
   border-radius: 10px;
 }
 
-/* Affichage Mobile */
-/* Affichage Bureau */
+#form-container {
+  height: 350px;
+  width: 380px;
+}
+
+#paymentForm {
+  height: 100%;
+  width: 100%;
+}
+#paymentForm .entry-1,
+#paymentForm .entry-2,
+#paymentForm .entry-3,
+#paymentForm .entry-4 {
+  display: flex;
+  flex-direction: column;
+}
+#paymentForm input,
+#paymentForm button {
+  border-radius: 10px;
+}
+#paymentForm label {
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+#paymentForm input {
+  height: 40px;
+  margin: 10px 0 30px 0;
+  border-width: 1px;
+  border: 1px solid hsl(270deg, 3%, 87%);
+  padding-left: 10px;
+}
+#paymentForm input:focus {
+  letter-spacing: 11px;
+}
+#paymentForm button {
+  width: 100%;
+  height: 50px;
+  background-color: hsl(278deg, 68%, 11%);
+  color: hsl(0deg, 0%, 100%);
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+#paymentForm .last-entries,
+#paymentForm .entry-3 div {
+  display: flex;
+  flex-direction: row;
+}
+#paymentForm .last-entries .expiration-inputs :first-child {
+  margin-right: 10px;
+}
+#paymentForm .last-entries .expiration-inputs :last-child {
+  margin-right: 20px;
+}
+#paymentForm .last-entries .expiration-inputs input {
+  width: 40%;
+}
+#paymentForm .last-entries .entry-4 {
+  width: 50%;
+}
+
+/* Affichage iPhone */
+@media screen and (max-width: 375px) {
+  #cardFacturation {
+    display: block;
+  }
+  #cards-container #frontCardDisplay {
+    transform: translateY(115%);
+  }
+  #cards-container #backCardDisplay {
+    transform: translateY(-115%);
+  }
+}
+/* Affichage iPad */
+/* Affichage Mac */
+@media screen and (min-width: 1025px) {
+  body {
+    background-image: url(./images/bg-main-desktop.png);
+    background-repeat: no-repeat;
+    background-size: 33% 100vh;
+  }
+  #cardFacturation {
+    height: 100vh;
+  }
+  #frontCardDisplay,
+  #backCardDisplay {
+    position: relative;
+    transition: 1s ease-in-out;
+  }
+  #frontCardDisplay {
+    right: 47px;
+    bottom: 19px;
+    z-index: 999;
+  }
+  #backCardDisplay {
+    left: 47px;
+    top: 19px;
+    z-index: 998;
+  }
+}
 
 /*# sourceMappingURL=style.css.map */
