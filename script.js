@@ -22,7 +22,7 @@
 
     month.addEventListener('input', function () {
         if (month.value.length == 0) {
-            document.getElementById('month-display').innerHTML = 'MM'
+            document.getElementById('month-display').innerHTML = '00'
         } else {
             document.getElementById('month-display').innerHTML = this.value
         }
@@ -30,7 +30,7 @@
 
     year.addEventListener('input', function () {
         if (year.value.length == 0) {
-            document.getElementById('year-display').innerHTML = 'YY'
+            document.getElementById('year-display').innerHTML = '00'
         } else {
             document.getElementById('year-display').innerHTML = this.value
         }
