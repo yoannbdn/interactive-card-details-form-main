@@ -14,6 +14,8 @@
     .attribution { font-size: 11px; text-align: center; background-color: none;}
     .attribution a { color: hsl(228, 45%, 44%); }
   </style>
+
+  <script src="./script.js"></script>
 </head>
 <body>
   <div id="cardFacturation">
@@ -21,19 +23,19 @@
       <div id="frontCardDisplay" class="cardFormat">
         <img id="cardLogo" src="./images/card-logo.svg" alt="card-logo">
         <div class="informations-container">
-          <p class="card-number">0000 0000 0000 0000</p>
+          <p id="numbers-display" class="card-number">0000 0000 0000 0000</p>
           <div class="others-informations">
-            <p class="cardholder-name"> Jane Appleseed</p>
+            <p id="cardholder-display" class="cardholder-name">Jane Appleseed</p>
             <div class="expiration">
-              <p class="month">00</p>
+              <p id="month-display" class="month">00</p>
               <p>/</p>
-              <p class="year">00</p>
+              <p id="year-display" class="year">00</p>
             </div>
           </div>
         </div>
       </div>
       <div id="backCardDisplay" class="cardFormat">
-        <p class="ccv">000</p>
+        <p id="cvc-display" class="cvc">000</p>
       </div>
     </div>
     <div id="form-container">
@@ -44,7 +46,7 @@
         </div>
         <div class="entry-2">
           <label for="cardNumber">Card Number</label>
-          <input type="number" id="cardNumber" placeholder="e.g. 1234 5678 9123 0000" minlength="16" maxlength="19" required>
+          <input type="number" id="cardNumber" placeholder="e.g. 1234 5678 9123 0000" pattern="[0-9]*" minlength="16" maxlength="19" required>
         </div>
         <div class="last-entries">
           <div class="entry-3">
