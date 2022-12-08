@@ -1,5 +1,3 @@
-window.onload = function () {
-
     const numbers = document.getElementById('cardNumber')
     const cardholdername = document.getElementById('cardholderName')
     const month = document.getElementById('cardExpirationMonth')
@@ -45,6 +43,3 @@ window.onload = function () {
             document.getElementById('cvc-display').innerHTML = this.value
         }
     });
-
-
-}
