@@ -43,3 +43,16 @@
             document.getElementById('cvc-display').innerHTML = this.value
         }
     });
+
+
+
+    function confirmation() {
+        document.getElementById('form-btn').innerText = 'Continue'
+
+        let elt = document.getElementById("formulaire")
+        console.log(elt)
+        elt.classList.add("display-off")
+
+        let elt2 = document.getElementById('confirmation')
+        elt2.classList.replace('display-off','display-flex')
+    }

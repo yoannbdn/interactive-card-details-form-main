@@ -113,6 +113,8 @@ form button{
     border-radius: 10px;
 }
 
+//////////////
+// Formulaire
 #form-container{
     height: 350px;
     width: 380px;
@@ -155,18 +157,6 @@ form button{
             margin:0;
         }
     }
-    button{
-        width: 100%;
-        height: 50px;
-        background-color: $very-dark-violet;
-        color: $white;
-        font-size: 13px;
-        letter-spacing: 1px;
-        transition: 0.4s ease-in-out;
-        &:hover{
-            transform: scale(1.05);
-            opacity: 0.95;
-        }
     }
     .last-entries,
     .entry-3 div{
@@ -189,7 +179,19 @@ form button{
             width: 50%;
         }
     }
-}
+#form-btn{
+        width: 100%;
+        height: 50px;
+        background-color: $very-dark-violet;
+        color: $white;
+        font-size: 13px;
+        letter-spacing: 1px;
+        transition: 0.4s ease-in-out;
+        &:hover{
+            transform: scale(1.05);
+            opacity: 0.95;
+        }
+    }
 /* Affichage iPhone */
 @media screen and (max-width : 375px) {
     #cardFacturation{
@@ -232,5 +234,30 @@ form button{
         left : 47px;
         top: 19px;
         z-index: 998;
+    }
+}
+#confirmation{
+    height: 100%;
+    width: 100%;
+
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.display-off{
+    display: none;
+}
+.display-flex{
+    display: flex;
+}
+
+// Attributions Front-end Mentor
+.attribution{
+    opacity: 100%;
+    position: relative;
+
+    &:hover{
+        opacity: 100%;
     }
 }
