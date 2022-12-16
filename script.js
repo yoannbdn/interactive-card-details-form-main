@@ -5,7 +5,7 @@
     inputMirrorEffect(cardholdername, 'cardholder-display', 'Jane Appleseed')
 
     const month = document.getElementById('cardExpirationMonth')
-    inputMirrorEffect(month, 'month-display', '00')
+    inputMirrorEffect(month,'month-display','00')
 
     const year = document.getElementById('cardExpirationYear')
     inputMirrorEffect(year, 'year-display', '00')
@@ -24,12 +24,10 @@
     };
 
     function confirmation() {
-        document.getElementById('form-btn').innerText = 'Continue'
-
         let elt = document.getElementById("formulaire")
-        console.log(elt)
-        elt.classList.add("display-off")
-
         let elt2 = document.getElementById('confirmation')
+
+        elt.classList.add("constriction")
         elt2.classList.replace('display-off','display-flex')
+        document.getElementById('form-btn').innerText = 'Continue'
     }
