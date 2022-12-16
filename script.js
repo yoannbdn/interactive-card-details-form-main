@@ -1,50 +1,27 @@
     const numbers = document.getElementById('cardNumber')
+    inputMirrorEffect(numbers, 'numbers-display', '0000 0000 0000 0000')
+
     const cardholdername = document.getElementById('cardholderName')
+    inputMirrorEffect(cardholdername, 'cardholder-display', 'Jane Appleseed')
+
     const month = document.getElementById('cardExpirationMonth')
+    inputMirrorEffect(month, 'month-display', '00')
+
     const year = document.getElementById('cardExpirationYear')
+    inputMirrorEffect(year, 'year-display', '00')
+
     const cvc = document.getElementById('cvc')
-    
-    numbers.addEventListener('input', function () {
-        if (numbers.value.length == 0) {
-            document.getElementById('numbers-display').innerHTML = '0000 0000 0000 0000'
-        } else {
-            document.getElementById('numbers-display').innerHTML = this.value
-        }
-    });
+    inputMirrorEffect(cvc, 'cvc-display', '000')
 
-    cardholdername.addEventListener('input', function () {
-        if (cardholdername.value.length == 0) {
-            document.getElementById('cardholder-display').innerHTML = 'Jane Appleseed'
-        } else {
-            document.getElementById('cardholder-display').innerHTML = this.value
-        }
-    });
-
-    month.addEventListener('input', function () {
-        if (month.value.length == 0) {
-            document.getElementById('month-display').innerHTML = '00'
-        } else {
-            document.getElementById('month-display').innerHTML = this.value
-        }
-    });
-
-    year.addEventListener('input', function () {
-        if (year.value.length == 0) {
-            document.getElementById('year-display').innerHTML = '00'
-        } else {
-            document.getElementById('year-display').innerHTML = this.value
-        }
-    });
-
-    cvc.addEventListener('input', function () {
-        if (cvc.value.length == 0) {
-            document.getElementById('cvc-display').innerHTML = '000'
-        } else {
-            document.getElementById('cvc-display').innerHTML = this.value
-        }
-    });
-
-
+    function inputMirrorEffect (inputConstName, inputID, initialValueDisplay) {
+        inputConstName.addEventListener('input', function() {
+            if (inputConstName.value.length == 0) {
+                document.getElementById(inputID).innerHTML = initialValueDisplay;
+            } else {
+                document.getElementById(inputID).innerHTML = this.value
+            }
+        })
+    };
 
     function confirmation() {
         document.getElementById('form-btn').innerText = 'Continue'
