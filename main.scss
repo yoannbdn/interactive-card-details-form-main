@@ -186,6 +186,7 @@ form button{
         color: $white;
         font-size: 13px;
         letter-spacing: 1px;
+        border-radius: 10px;
         transition: 0.4s ease-in-out;
         &:hover{
             transform: scale(1.05);
@@ -237,13 +238,14 @@ form button{
     }
 }
 // Message de confirmation de paiement
-#confirmation{
+.confirmation{
     transition: 600ms;
 
     width: 100%;
 
     margin-bottom: 40px;
 
+    display: flex;
     flex-direction: column;
     align-items: center;
 
@@ -254,6 +256,7 @@ form button{
     p{
         color:$light-grayish-violet;
         filter: brightness(0.3);
+        margin-bottom: 30px;
     }
 }
 
@@ -262,7 +265,10 @@ form button{
     transform: scale(0);
     z-index: 999;
 }
-@keyframes revealing {
+
+
+
+/* @keyframes revealing {
     0% {
         display: block;
     }
@@ -270,17 +276,9 @@ form button{
     50% {}
 
     100% {}
-}
+}*/
 .apparition{
     transform: revealing;
-}
-
-//Switchin système
-.display-off{
-    display: none;
-}
-.display-flex{
-    display: flex;
 }
 
 // Attributions Front-end Mentor
