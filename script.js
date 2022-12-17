@@ -1,5 +1,5 @@
     const numbers = document.getElementById('cardNumber')
-    inputMirrorEffect(numbers, 'numbers-display', '0000 0000 0000 0000')
+    inputMirrorEffectCard(numbers, 'numbers-display', '0000 0000 0000 0000')
 
     const cardholdername = document.getElementById('cardholderName')
     inputMirrorEffect(cardholdername, 'cardholder-display', 'Jane Appleseed')
@@ -13,16 +13,12 @@
     const cvc = document.getElementById('cvc')
     inputMirrorEffect(cvc, 'cvc-display', '000')
 
-    // Fonction pour attribuer les inputs saisis dans l'HTML d'un autre élément
-    function inputMirrorEffect (inputConstName, inputID, initialValueDisplay) {
-        inputConstName.addEventListener('input', function() {
-            if (inputConstName.value.length == 0) {
-                document.getElementById(inputID).innerHTML = initialValueDisplay;
-            } else {
-                document.getElementById(inputID).innerHTML = this.value
-            }
-        })
-    };
+    function formatCardNumber(number) {
+        return number.toString()
+            .split('')
+            .join(' ')
+            .replace(/([0-9]) ([0-9]) ([0-9]) ([0-9])\b/g, '$1$2$3$4')
+      }
 
     function confirmation() {
         let formulaire = document.getElementById('paymentForm')
@@ -35,6 +31,28 @@
         createInjectedBalise("#paymentForm div", 'button', `<button type="submit" id="form-btn" class="btn">Continue</button>`)
     }
 
+    // Librairies de fonctions
+
+    // Fonction pour attribuer les inputs saisis dans l'HTML d'un autre élément
+    function inputMirrorEffect (inputConstName, inputID, initialValueDisplay) {
+        inputConstName.addEventListener('input', function() {
+            if (inputConstName.value.length == 0) {
+                document.getElementById(inputID).innerHTML = initialValueDisplay;
+            } else {
+                document.getElementById(inputID).innerHTML = this.value
+            }
+        })
+    };    
+    function inputMirrorEffectCard (inputConstName, inputID, initialValueDisplay) {
+        inputConstName.addEventListener('input', function() {
+            if (inputConstName.value.length == 0) {
+                document.getElementById(inputID).innerHTML = initialValueDisplay;
+            } else {
+                let stringSpace = formatCardNumber(this.value)
+                document.getElementById(inputID).innerHTML = stringSpace
+            }
+        })
+    };   
 
     // Fonction pour supprimer tous les enfants
     function deleteChildren (elementID) {
@@ -56,9 +74,3 @@
         let injectToBalise = document.querySelector(nouveauChemin)
         injectToBalise.outerHTML = contenuAInclure
     }
-    
-
-
-    
-    
-    
