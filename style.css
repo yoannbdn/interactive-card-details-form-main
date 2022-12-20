@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* Frontend Mentor Style Guide
 
 ## Layout
@@ -64,6 +65,7 @@ form button {
 
 #frontCardDisplay {
   background-image: url(./images/bg-card-front.png);
+  background-size: 100%;
   color: hsl(0deg, 0%, 100%);
 }
 #frontCardDisplay #cardLogo {
@@ -91,6 +93,7 @@ form button {
 
 #backCardDisplay {
   background-image: url(./images/bg-card-back.png);
+  background-size: 100%;
   color: hsl(0deg, 0%, 100%);
   letter-spacing: 2px;
   overflow: hidden;
@@ -185,16 +188,62 @@ form button {
   opacity: 0.95;
 }
 
+#cardFacturation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 /* Affichage iPhone */
 @media screen and (max-width: 375px) {
-  #cardFacturation {
-    display: block;
+  /* Mesures : 
+  Numéros 13px
+  Nom - Date - CVC 8px
+  Background top : 240px
+
+  margin top back card 30px
+  */
+  body {
+    background-image: url(./images/bg-main-desktop.png);
+    background-repeat: no-repeat;
+    background-size: 100% 33%;
+  }
+  .cardFormat {
+    width: 285px;
+    height: 155px;
+  }
+  .cardFormat #cardLogo {
+    height: 155px;
+    width: 285px;
   }
   #cards-container #frontCardDisplay {
-    transform: translateY(115%);
+    position: relative;
+    left: -20px;
+    top: 125px;
+    z-index: 999;
+  }
+  #cards-container #cardLogo {
+    height: 30px;
+    width: 55px;
+  }
+  #cards-container #numbers-display {
+    font-size: 1em;
   }
   #cards-container #backCardDisplay {
-    transform: translateY(-115%);
+    position: relative;
+    top: -125px;
+    left: 20px;
+    z-index: 998;
+  }
+  .others-informations p,
+  .cvc {
+    font-size: 0.5em;
+  }
+  #form-container {
+    margin: 20px;
+  }
+  #paymentForm {
+    margin: 0 5%;
   }
 }
 /* Affichage iPad */
@@ -207,6 +256,7 @@ form button {
   }
   #cardFacturation {
     height: 100vh;
+    flex-direction: row;
   }
   #frontCardDisplay,
   #backCardDisplay {
