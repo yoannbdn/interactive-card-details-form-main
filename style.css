@@ -67,6 +67,7 @@ form button {
   background-image: url(./images/bg-card-front.png);
   background-size: 100%;
   color: hsl(0deg, 0%, 100%);
+  overflow: hidden;
 }
 #frontCardDisplay #cardLogo {
   margin: 5% 0 0 5%;
@@ -206,12 +207,11 @@ form button {
   margin-bottom: 30px;
 }
 
-.constriction {
-  transition: 600ms;
-  transform: scale(0);
-  z-index: 999;
-}
-
+/*.constriction {
+    transition: 600ms;
+    transform: scale(0);
+    z-index: 999;
+}*/
 .attribution {
   width: 100%;
   opacity: 10%;
@@ -239,6 +239,7 @@ form button {
     display: flex;
     flex-direction: column;
     align-items: center;
+    transition: 0.4s ease;
   }
   .cardFormat {
     width: 285px;
@@ -287,17 +288,17 @@ form button {
     align-items: center;
     height: 100vh;
   }
-  .cardFormat {
-    width: 285px;
-    height: 155px;
-  }
+  /*    .cardFormat{
+          width: 285px;
+          height: 155px;
+      }*/
   #cards-container {
-    transition: 0.4s ease-in;
+    transition: 0.2s ease;
   }
   #cards-container #frontCardDisplay {
     position: relative;
-    left: -20px;
-    top: 125px;
+    transform: scale(0.85) translate(-5%, 90%);
+    transition: 0.4s ease;
     z-index: 999;
   }
   #cards-container #cardLogo {
@@ -305,23 +306,22 @@ form button {
     width: 55px;
   }
   #cards-container #numbers-display {
-    font-size: 1em;
+    font-size: 150%;
   }
   #cards-container #backCardDisplay {
     position: relative;
-    top: -125px;
-    left: 20px;
+    transform: scale(0.85) translate(5%, -90%);
     z-index: 998;
-  }
-  .others-informations p,
-  .cvc {
-    font-size: 0.6em;
   }
   #form-container {
     margin: 20px;
   }
   #paymentForm {
     margin: 0 5%;
+  }
+  #form-container {
+    transform: scale(95%);
+    transition: 0.2s ease;
   }
 }
 /* Affichage Mac */
@@ -338,16 +338,19 @@ form button {
   #frontCardDisplay,
   #backCardDisplay {
     position: relative;
-    transition: 1s ease-in-out;
   }
   #frontCardDisplay {
-    right: 47px;
-    bottom: 19px;
+    /*right : 47px;
+    bottom: 19px;*/
+    transform: translate(-5%, -10%);
+    transition: 0.4s ease;
     z-index: 999;
   }
   #backCardDisplay {
-    left: 47px;
-    top: 19px;
+    /*left : 47px;
+    top: 19px;*/
+    transform: translate(5%, 10%);
+    transition: 0.4s ease;
     z-index: 998;
   }
 }
