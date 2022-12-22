@@ -13,6 +13,7 @@
     const cvc = document.getElementById('cvc')
     inputMirrorEffect(cvc, 'cvc-display', '000')
 
+    // Fonction pour disposer le numéro de carte en paquets de 4 chiffres
     function formatCardNumber(number) {
         return number.toString()
             .split('')
@@ -20,6 +21,7 @@
             .replace(/([0-9]) ([0-9]) ([0-9]) ([0-9])\b/g, '$1$2$3$4')
       }
 
+    // Fonction qui efface le formulaire et le remplace par le message de validation
     function confirmation() {
         let formulaire = document.getElementById('paymentForm')
         deleteChildren ('paymentForm')
@@ -33,7 +35,7 @@
 
     // Librairies de fonctions
 
-    // Fonction pour attribuer les inputs saisis dans l'HTML d'un autre élément
+    // Fonction pour attribuer les inputs saisis dans l'HTML d'un autre élément (Effet mirroir)
     function inputMirrorEffect (inputConstName, inputID, initialValueDisplay) {
         inputConstName.addEventListener('input', function() {
             if (inputConstName.value.length == 0) {
@@ -74,3 +76,60 @@
         let injectToBalise = document.querySelector(nouveauChemin)
         injectToBalise.outerHTML = contenuAInclure
     }
+
+    /*function isANumberFunction () {
+        numbers.addEventListener('input', function(){
+        if (isNaN(numbers)){
+            document.getElementById("message").innerHTML = 'Veuillez saisir un nombre'
+            return true
+        }
+        else {
+            return false
+        }})
+    }*/
+
+   /* document.getElementById('paymentForm').addEventListener("submit", function(e){
+        // Retire le comportement par défaut du formulaire
+        // e.preventDefault()
+        let errorMessage
+        if(!numbers.value) {
+
+        }
+    })*/
+
+    // Fonction de vérification de la saisie des inputs et d'alerte en cas d'erreur
+
+    // Messages imposés 
+    /* "Wrong format, numbers only"
+     "Can't be blank" */
+
+    let form = document.getElementsByTagName('form')[0]
+    // const numbers : numéros de CB
+    // const cardholdername : nom du titulaire
+    // const month : mois d'exp
+    // const year : année d'exp
+    // const cvc : crypto
+    let error = document.querySelector(".error")
+
+    numbers.addEventListener("input", function (event){
+       // Chaque fois que l'utilisateur saisit qqchose, on vérifie la validité du champs numbers
+       if (numbers.validity.valid){
+        error.innerHTML = ""
+        error.className = "error"
+       }
+    }, false);
+    form.addEventListener("submit", function (event) {
+        // Chaque fois que l'utilisateur tente d'envoyer les données
+        // on vérifie que le champ email est valide.
+        if (!email.validity.valid) {
+      
+          // S'il est invalide, on affiche un message d'erreur personnalisé
+          error.innerHTML = "J'attends une adresse e-mail correcte, mon cher&nbsp;!";
+          error.className = "error active";
+          // Et on empêche l'envoi des données du formulaire
+          event.preventDefault();
+        }
+      }, false);
+
+
+
