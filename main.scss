@@ -154,8 +154,15 @@ form button{
         &:valid{
             border: 3px solid $dark-grayish-violet;
         }
+        &::before{
+            border: 1px solid $white;
+        }
     }
-    .error{
+    .date-input{
+        display: flex;
+        flex-direction: column;
+    }
+    .error-nb, .error-cardholder, .error-date, .error-cvc{
         font-family: 'Times New Roman', Times, serif;
         color: $red;
         font-size: 1em;

@@ -149,7 +149,14 @@ form button {
 #formulaire input:valid {
   border: 3px solid hsl(279deg, 6%, 55%);
 }
-#formulaire .error {
+#formulaire input::before {
+  border: 1px solid hsl(0deg, 0%, 100%);
+}
+#formulaire .date-input {
+  display: flex;
+  flex-direction: column;
+}
+#formulaire .error-nb, #formulaire .error-cardholder, #formulaire .error-date, #formulaire .error-cvc {
   font-family: "Times New Roman", Times, serif;
   color: hsl(0deg, 100%, 66%);
   font-size: 1em;

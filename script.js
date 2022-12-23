@@ -77,83 +77,137 @@
         injectToBalise.outerHTML = contenuAInclure
     }
 
-    /*function isANumberFunction () {
+
+    // Système de vérification des inputs et d'alertes "utilisateur"
+        // Vérification du numéro de carte en temps réél
+        let errorNb = document.querySelector(".error-nb")
+        let failInput = '                '
         numbers.addEventListener('input', function(){
-        if (isNaN(numbers)){
-            document.getElementById("message").innerHTML = 'Veuillez saisir un nombre'
-            return true
-        }
-        else {
-            return false
-        }})
-    }*/
+            if (this.value.length == 16 && !isNaN(this.value) == true ) {
+                errorNb.innerHTML = ""; // On réinitialise le contenu
+                errorNb.className = "error-nb"; // On réinitialise l'état visuel du message
+                console.log(`Numéro de carte valide`)
+                check1 = 1
+                console.log('Checked')
 
-   /* document.getElementById('paymentForm').addEventListener("submit", function(e){
-        // Retire le comportement par défaut du formulaire
-        // e.preventDefault()
-        let errorMessage
-        if(!numbers.value) {
+            } else if (this.value.length < 16
+                        && this.value > 0
+                        && !isNaN(this.value) == true) {
+                            errorNb.innerHTML = `Too short !`
+                        console.log(`Trop court de ` + (16 - this.value.length))
+                        check1 = check1 * 0,12
+            } else if (this.value.length == 0) {
+                errorNb.innerHTML = `Can't be blank !`
+                check1 = check1 * 0,12
+            } else if (this.value == failInput){
+                errorNb.innerHTML = `NIKOUMOUK`
+                check1 = check1 * 0,12
+            } else {
+                errorNb.innerHTML = 'Wrong format, numbers only.'
+                console.log(`Input non valide, ce ne sont pas des nombres`)
+                check1 = check1 * 0,12
+            }
+        });
 
-        }
-    })*/
+      // Vérification du nom du titulaire en temps réel 
+      let errorCardholder = document.querySelector(`.error-cardholder`)
+      cardholdername.addEventListener('input', function(){
+        if (this.value.length == 0){
+            errorCardholder.innerHTML = `Can't be blank !`
+            check2 = check2 * 0,12
+        } else if (isNaN(this.value) == true){
+            if (this.value.length !== 0 && this.value.length <= 3)  {
+                errorCardholder.innerHTML = 'Too short..'
+                check2 = check2 * 0,12
+            } else {
+                errorCardholder.innerHTML = ''
+                errorCardholder.className = 'error-cardholder'
+                check2 = 1
+                console.log('Checked')
 
-    // Fonction de vérification de la saisie des inputs et d'alerte en cas d'erreur
-
-    // Messages imposés 
-    /* "Wrong format, numbers only"
-     "Can't be blank" */
-
-    let form = document.getElementsByTagName('form')[0]
-    // const numbers : numéros de CB
-    // const cardholdername : nom du titulaire
-    // const month : mois d'exp
-    // const year : année d'exp
-    // const cvc : crypto
-    let error = document.querySelector(".error")
-
-
-    /*cardholdername.addEventListener("input", function (event){
-       // Chaque fois que l'utilisateur saisit qqchose, on vérifie la validité du champs numbers
-       if (cardholdername.validity.typeMismatch){
-        cardholdername.setCustomValidity('Veuillez saisir un nom')
-       } else {
-        cardholdername.setCustomValidity('')
-       }
-    })*/
-    /*form.addEventListener("submit", function (event) {
-        // Chaque fois que l'utilisateur tente d'envoyer les données
-        // on vérifie que le champ email est valide.
-        if (!email.validity.valid) {
-      
-          // S'il est invalide, on affiche un message d'erreur personnalisé
-          error.innerHTML = "J'attends une adresse e-mail correcte, mon cher&nbsp;!";
-          error.className = "error active";
-          // Et on empêche l'envoi des données du formulaire
-          event.preventDefault();
-        }
-      }, false);*/
-      numbers.addEventListener('input', function(){
-        inputNumCards = this.value
-        console.log(this.value)
-
-        console.log(inputNumCards.length)
-        console.log(isNaN(inputNumCards))
-        if (this.value.length == 16 && !isNaN(inputNumCards) == true ) {
-            error.innerHTML = ""; // On réinitialise le contenu
-            error.className = "error"; // On réinitialise l'état visuel du message
-            console.log(`Numéro de carte valide`)
-        } else if (this.value.length < 16
-                    && this.value > 0
-                    && !isNaN(this.value) == true
-                    && this.value !== '                '){
-            error.innerHTML = `Le numéro de carte est trop court`
-            console.log(`Trop court`)
-        } else if (this.value.length == 0) {
-            error.innerHTML = `Can't be blank !`
-        } else if (this.value == '                '){
-            error.innerHTML = `NIKOUMOUK`
+            }
         } else {
-            error.innerHTML = "Merci de renseigner CORRECTEMENT le numéro de ta carte sale fils de pute de ta mère !!!"
-            console.log(`Input non valide`)
+            errorCardholder.innerHTML = 'Wrong format, letters only.'
+            check2 = check2 * 0,13
         }
       });
+
+      // Vérification du mois
+      let errorDate = document.querySelector(`.error-date`)
+      month.addEventListener('input', function(){
+        if (this.value.length == 0){
+            errorDate.innerHTML = `Can't be blank !`
+            check3 = check3 * 0,12
+        } else if (this.value > 0 && this.value >= 12){
+            errorDate.innerHTML = ''
+            errorDate.className = 'error-date'
+            check3 = 1
+            console.log('Checked')
+
+        }else{
+            errorDate.innerHTML = 'Wrong format, numbers only.'
+            check3 = check3 * 0,12
+        }
+      });
+
+      // Vérification de l'année
+      year.addEventListener('input', function(){
+        if (this.value.length == 0){
+            errorDate.innerHTML = `Can't be blank !`
+            check4 = check4 + 1
+
+        } else if (this.value > 21 && this.value <= 30){
+            errorDate.innerHTML = ''
+            errorDate.className = 'error-date'
+            check4 = 1
+            console.log('Checked')
+
+        } else if (this.value < 22 ){
+            errorDate.innerHTML= 'Too old..'
+            check4 = check4 + 1
+        }
+        else{
+            errorDate.innerHTML = 'Wrong format, numbers only.'
+            check4 = check4 + 1
+        }
+      });
+
+      // Vérification du CVC
+    let errorCvc = document.querySelector(`.error-cvc`)
+    cvc.addEventListener('input', function(){
+        if (this.value.length == 0){
+            errorCvc.innerHTML = `Can't be blank !`
+            check5 = check5 * 0.11
+        } else if (!isNaN(this.value) == true){
+            if (this.value.length == 3){
+                errorCvc.innerHTML = ''
+                errorCvc.className = 'error-cvc'
+                check5 = 1
+                console.log('Checked')
+            } else {
+                errorCvc.innerHTML = `Too short...`
+                check5 = check5 * 0.11
+            }
+        } else {
+            errorCvc.innerHTML = 'Wrong format, numbers only.'
+            check5 = check5 * 0.11
+        }
+    });
+
+        // Création de variables permettant de checker tous les inputs
+        let check1, check2 = 2
+        let check3, check4 = 3
+        let check5 = 4
+        let sumCheck = check1+check2+check3+check4+check5
+            // Chaque verification ci-dessus implémenteront true/false dans les checks
+            // Si tous les checkers sont true = le formulaire est valide
+        
+            function validForm () {
+                if ( sumCheck == 5){
+                    console.log('Le formulaire est valide')
+                    formulaire.preventDefault()
+                } else {
+                    formulaire.preventDefault()
+                    console.log('Invalid Form')
+                }
+            }
