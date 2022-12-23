@@ -138,16 +138,16 @@ form button {
 }
 #formulaire input {
   height: 40px;
-  margin: 10px 0 30px 0;
+  margin: 10px 0;
   border-width: 1px;
   border: 1px solid hsl(270deg, 3%, 87%);
   padding-left: 10px;
 }
 #formulaire input:invalid {
-  border: 3px solid hsl(0deg, 100%, 66%);
+  border: 1px solid hsl(0deg, 100%, 66%);
 }
 #formulaire input:valid {
-  border: 3px solid hsl(279deg, 6%, 55%);
+  border: 1px solid hsl(279deg, 6%, 55%);
 }
 #formulaire input::before {
   border: 1px solid hsl(0deg, 0%, 100%);
@@ -157,9 +157,10 @@ form button {
   flex-direction: column;
 }
 #formulaire .error-nb, #formulaire .error-cardholder, #formulaire .error-date, #formulaire .error-cvc {
-  font-family: "Times New Roman", Times, serif;
+  font-family: "Space Grotesk";
   color: hsl(0deg, 100%, 66%);
-  font-size: 1em;
+  font-size: 0.8em;
+  margin-bottom: 30px;
 }
 #formulaire input {
   -moz-appearance: textfield;

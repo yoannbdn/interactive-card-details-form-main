@@ -144,15 +144,15 @@ form button{
     }
     input{
         height: 40px;
-        margin: 10px 0 30px 0;
+        margin: 10px 0;
         border-width: 1px;
         border: 1px solid $light-grayish-violet;
         padding-left: 10px;
         &:invalid{
-            border: 3px solid $red;
+            border: 1px solid $red;
         }
         &:valid{
-            border: 3px solid $dark-grayish-violet;
+            border: 1px solid $dark-grayish-violet;
         }
         &::before{
             border: 1px solid $white;
@@ -163,9 +163,10 @@ form button{
         flex-direction: column;
     }
     .error-nb, .error-cardholder, .error-date, .error-cvc{
-        font-family: 'Times New Roman', Times, serif;
+        font-family: 'Space Grotesk';
         color: $red;
-        font-size: 1em;
+        font-size: 0.8em;
+        margin-bottom: 30px;
     }
     input{
         -moz-appearance: textfield;
