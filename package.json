@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/yoannbdn/interactive-card-details-form-main/issues"
   },
-  "homepage": "https://github.com/yoannbdn/interactive-card-details-form-main#readme"
+  "homepage": "https://github.com/yoannbdn/interactive-card-details-form-main#readme",
+  "dependencies": {
+    "jquery": "^3.6.3"
+  }
 }

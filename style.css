@@ -143,6 +143,17 @@ form button {
   border: 1px solid hsl(270deg, 3%, 87%);
   padding-left: 10px;
 }
+#formulaire input:invalid {
+  border: 3px solid hsl(0deg, 100%, 66%);
+}
+#formulaire input:valid {
+  border: 3px solid hsl(279deg, 6%, 55%);
+}
+#formulaire .error {
+  font-family: "Times New Roman", Times, serif;
+  color: hsl(0deg, 100%, 66%);
+  font-size: 1em;
+}
 #formulaire input {
   -moz-appearance: textfield;
 }

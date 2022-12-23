@@ -148,6 +148,17 @@ form button{
         border-width: 1px;
         border: 1px solid $light-grayish-violet;
         padding-left: 10px;
+        &:invalid{
+            border: 3px solid $red;
+        }
+        &:valid{
+            border: 3px solid $dark-grayish-violet;
+        }
+    }
+    .error{
+        font-family: 'Times New Roman', Times, serif;
+        color: $red;
+        font-size: 1em;
     }
     input{
         -moz-appearance: textfield;

@@ -111,14 +111,16 @@
     // const cvc : crypto
     let error = document.querySelector(".error")
 
-    numbers.addEventListener("input", function (event){
+
+    /*cardholdername.addEventListener("input", function (event){
        // Chaque fois que l'utilisateur saisit qqchose, on vérifie la validité du champs numbers
-       if (numbers.validity.valid){
-        error.innerHTML = ""
-        error.className = "error"
+       if (cardholdername.validity.typeMismatch){
+        cardholdername.setCustomValidity('Veuillez saisir un nom')
+       } else {
+        cardholdername.setCustomValidity('')
        }
-    }, false);
-    form.addEventListener("submit", function (event) {
+    })*/
+    /*form.addEventListener("submit", function (event) {
         // Chaque fois que l'utilisateur tente d'envoyer les données
         // on vérifie que le champ email est valide.
         if (!email.validity.valid) {
@@ -129,7 +131,29 @@
           // Et on empêche l'envoi des données du formulaire
           event.preventDefault();
         }
-      }, false);
+      }, false);*/
+      numbers.addEventListener('input', function(){
+        inputNumCards = this.value
+        console.log(this.value)
 
-
-
+        console.log(inputNumCards.length)
+        console.log(isNaN(inputNumCards))
+        if (this.value.length == 16 && !isNaN(inputNumCards) == true ) {
+            error.innerHTML = ""; // On réinitialise le contenu
+            error.className = "error"; // On réinitialise l'état visuel du message
+            console.log(`Numéro de carte valide`)
+        } else if (this.value.length < 16
+                    && this.value > 0
+                    && !isNaN(this.value) == true
+                    && this.value !== '                '){
+            error.innerHTML = `Le numéro de carte est trop court`
+            console.log(`Trop court`)
+        } else if (this.value.length == 0) {
+            error.innerHTML = `Can't be blank !`
+        } else if (this.value == '                '){
+            error.innerHTML = `NIKOUMOUK`
+        } else {
+            error.innerHTML = "Merci de renseigner CORRECTEMENT le numéro de ta carte sale fils de pute de ta mère !!!"
+            console.log(`Input non valide`)
+        }
+      });
