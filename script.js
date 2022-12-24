@@ -205,9 +205,11 @@
             function validForm () {
                 if ( sumCheck == 5){
                     console.log('Le formulaire est valide')
+                    return true
                     formulaire.preventDefault()
                 } else {
                     formulaire.preventDefault()
                     console.log('Invalid Form')
+                    return false
                 }
             }
