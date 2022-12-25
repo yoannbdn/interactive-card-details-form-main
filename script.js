@@ -21,6 +21,13 @@
             .replace(/([0-9]) ([0-9]) ([0-9]) ([0-9])\b/g, '$1$2$3$4')
       }
 
+      function spacer(){
+        this.toString()
+        .split('')
+            .join(' ')
+            .replace(/([0-9]) ([0-9]) ([0-9]) ([0-9])\b/g, '$1$2$3$4')
+      }
+
     // Fonction qui efface le formulaire et le remplace par le message de validation
     function confirmation() {
         let formulaire = document.getElementById('paymentForm')
@@ -132,45 +139,81 @@
         }
       });
 
-      // Vérification du mois
+      // Vérification de la date d'expiration de la carte
+      let today = new Date()
+      let todayMonth = today.getMonth() + 1
+      let todayYear = today.getYear() - 100
+      let inputMonth = 0
+      let inputYear = 0
+
       let errorDate = document.querySelector(`.error-date`)
+      
+      // Récupération de l'input month
       month.addEventListener('input', function(){
-        if (this.value.length == 0){
-            errorDate.innerHTML = `Can't be blank !`
-            check3 = check3 * 0,12
-        } else if (this.value > 0 && this.value >= 12){
-            errorDate.innerHTML = ''
-            errorDate.className = 'error-date'
-            check3 = 1
-            console.log('Checked')
-
-        }else{
-            errorDate.innerHTML = 'Wrong format, numbers only.'
-            check3 = check3 * 0,12
-        }
-      });
-
-      // Vérification de l'année
+          if (this.value.length == 0){
+              errorDate.innerHTML = `Can't be blank !`
+            } else if (this.value.length > 0 && !isNaN(this.value) == true) {
+                inputMonth = this.value
+                expirationTest()
+            }
+            else {
+                errorDate.innerHTML = 'Wrong format, numbers only.'
+            }
+            
+        })
+        
+      // Récupération de l'input year
       year.addEventListener('input', function(){
         if (this.value.length == 0){
             errorDate.innerHTML = `Can't be blank !`
-            check4 = check4 + 1
+        } else if (this.value.length > 0 && !isNaN(this.value) == true) {
+            inputYear = this.value
+            expirationTest()
+        } 
+        else {
+            errorDate.innerHTML = 'Wrong format, numbers only.'
+        }
+        
+    })
 
-        } else if (this.value > 21 && this.value <= 30){
+    function expirationTest () {
+        console.log(`Date actuelle : ` + todayMonth + `/` + todayYear)
+        console.log(`Expiration de la carte : ` + inputMonth + `/`+ inputYear)
+  
+        if (inputYear == todayYear && inputMonth >= todayMonth && inputMonth <= 12){
+            console.log(`Exp. de carte : OK
+                ==================`)
+                errorDate.innerHTML = ''
+                errorDate.className = 'error-date'
+                return true
+
+            /*if (inputMonth >= todayMonth && inputMonth <= 12){
+                console.log(`Exp. de carte : OK
+                ==================`)
+                errorDate.innerHTML = ''
+                errorDate.className = 'error-date'
+                return true
+            } else {
+                console.log ('Mois invalide')
+                errorDate.innerHTML = `Expirated..`
+                return false
+            }*/
+        } else if (inputYear > todayYear && inputMonth > 0 && inputMonth <= 12){
+            console.log(`Exp. de carte : OK 2023
+                ==================`)
             errorDate.innerHTML = ''
             errorDate.className = 'error-date'
-            check4 = 1
-            console.log('Checked')
+            return true
+        } else if (inputMonth > 12 || inputMonth < 1) {
+            errorDate.innerHTML = `Wrong format`
+        }
+        else {
+            errorDate.innerHTML = `Expirated`
+            console.log("Date d'expiration de carte invalide")
+            return false
+        }
+    }
 
-        } else if (this.value < 22 ){
-            errorDate.innerHTML= 'Too old..'
-            check4 = check4 + 1
-        }
-        else{
-            errorDate.innerHTML = 'Wrong format, numbers only.'
-            check4 = check4 + 1
-        }
-      });
 
       // Vérification du CVC
     let errorCvc = document.querySelector(`.error-cvc`)
