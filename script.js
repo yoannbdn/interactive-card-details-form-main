@@ -89,7 +89,7 @@
         // Vérification du numéro de carte en temps réél
         let errorNb = document.querySelector(".error-nb")
         let failInput = '                '
-        numbers.addEventListener('input', numbersVerificator(){
+        numbers.addEventListener('input', function numbersVerificator (){
             if (this.value.length == 16 && !isNaN(this.value) == true ) {
                 errorNb.innerHTML = ""; // On réinitialise le contenu
                 errorNb.className = "error-nb"; // On réinitialise l'état visuel du message
@@ -158,10 +158,9 @@
       month.addEventListener('input', function(){
           if (this.value.length == 0){
               errorDate.innerHTML = `Can't be blank !`
-            } else if (this.value.length == 2 && !isNaN(this.value) == true) {
+            } else if (this.value.length >0 && !isNaN(this.value) == true) {
                 inputMonth = this.value
                 expirationTest()
-                year.focus()
             }
             else {
                 errorDate.innerHTML = 'Wrong format.'
@@ -173,10 +172,9 @@
       year.addEventListener('input', function(){
         if (this.value.length == 0){
             errorDate.innerHTML = `Can't be blank !`
-        } else if (this.value.length == 2 && !isNaN(this.value) == true) {
+        } else if (this.value.length >0 && !isNaN(this.value) == true) {
             inputYear = this.value
             expirationTest()
-            cvc.focus()
         } 
         else {
             errorDate.innerHTML = 'Wrong format.'
