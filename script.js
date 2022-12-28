@@ -158,13 +158,13 @@
       month.addEventListener('input', function(){
           if (this.value.length == 0){
               errorDate.innerHTML = `Can't be blank !`
-            } else if (this.value.length > 0 && !isNaN(this.value) == true) {
+            } else if (this.value.length == 2 && !isNaN(this.value) == true) {
                 inputMonth = this.value
                 expirationTest()
                 year.focus()
             }
             else {
-                errorDate.innerHTML = 'Wrong format, numbers only.'
+                errorDate.innerHTML = 'Wrong format.'
             }
             
         })
@@ -173,13 +173,13 @@
       year.addEventListener('input', function(){
         if (this.value.length == 0){
             errorDate.innerHTML = `Can't be blank !`
-        } else if (this.value.length > 0 && !isNaN(this.value) == true) {
+        } else if (this.value.length == 2 && !isNaN(this.value) == true) {
             inputYear = this.value
             expirationTest()
             cvc.focus()
         } 
         else {
-            errorDate.innerHTML = 'Wrong format, numbers only.'
+            errorDate.innerHTML = 'Wrong format.'
         }
         
     })
