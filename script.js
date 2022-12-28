@@ -89,14 +89,14 @@
         // Vérification du numéro de carte en temps réél
         let errorNb = document.querySelector(".error-nb")
         let failInput = '                '
-        numbers.addEventListener('input', function(){
+        numbers.addEventListener('input', numbersVerificator(){
             if (this.value.length == 16 && !isNaN(this.value) == true ) {
                 errorNb.innerHTML = ""; // On réinitialise le contenu
                 errorNb.className = "error-nb"; // On réinitialise l'état visuel du message
                 console.log(`Numéro de carte valide`)
                 check1 = 1
                 console.log('Checked')
-                month.focus()
+                return true
 
             } else if (this.value.length < 16
                         && this.value > 0
@@ -116,6 +116,11 @@
                 check1 = check1 * 0,12
             }
         });
+        function jumpInputs () {
+            if ( numbersVerificator() == true ){
+                month.focus()
+                }
+            }
 
       // Vérification du nom du titulaire en temps réel 
       let errorCardholder = document.querySelector(`.error-cardholder`)
