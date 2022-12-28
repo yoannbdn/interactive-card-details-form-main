@@ -53,17 +53,17 @@
               <label for="cardExpirationMonth cardExpirationYear">Exp. Date (MM/YY)</label>
               <div class="expiration-inputs">
                 <!-- Mois d'expiration de la carte -->
-                  <input type="text" name="" id="cardExpirationMonth" placeholder="MM" minlength="2" maxlength="2" required>
+                  <input type="text" name="" id="cardExpirationMonth" placeholder="MM" minlength="2" maxlength="2" inputmode="decimal" required>
                 
                 <!-- Année d'expiration de la carte -->
-                  <input type="text" name="" id="cardExpirationYear" placeholder="YY" minlength="2" maxlength="2" required>
+                  <input type="text" name="" id="cardExpirationYear" placeholder="YY" minlength="2" maxlength="2" inputmode="decimal" required>
               </div>
               <p class="error-date" aria-live="polite"></p>
             </div>
             <div class="entry-4">
               <!-- CVC de la carte -->
               <label for="ccv">CVC</label>
-              <input type="text" id="cvc" placeholder="e.g. 123" minlength="3" maxlength="3" pattern="[0-9]*" required>
+              <input type="text" id="cvc" placeholder="e.g. 123" minlength="3" maxlength="3" pattern="[0-9]*" inputmode="decimal" required>
               <p class="error-cvc" aria-live="polite"></p>
             </div>
           </div>
