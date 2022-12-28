@@ -96,6 +96,7 @@
                 console.log(`Numéro de carte valide`)
                 check1 = 1
                 console.log('Checked')
+                month.focus()
 
             } else if (this.value.length < 16
                         && this.value > 0
@@ -155,6 +156,7 @@
             } else if (this.value.length > 0 && !isNaN(this.value) == true) {
                 inputMonth = this.value
                 expirationTest()
+                year.focus()
             }
             else {
                 errorDate.innerHTML = 'Wrong format, numbers only.'
@@ -169,6 +171,7 @@
         } else if (this.value.length > 0 && !isNaN(this.value) == true) {
             inputYear = this.value
             expirationTest()
+            cvc.focus()
         } 
         else {
             errorDate.innerHTML = 'Wrong format, numbers only.'
